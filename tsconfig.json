@@ -18,12 +18,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "noImplicitAny": true,
     "outDir": "./dist/",
-    "sourceMap": true
+    "sourceMap": true,
+    "incremental": true
   },
-  "include": [ 
+  "include": [
     "src"
-  ]  
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
