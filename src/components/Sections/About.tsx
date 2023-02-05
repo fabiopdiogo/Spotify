@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Cards from '../Elements/Cards';
+
 
 const H1 = styled.h1`
   font-size:85px;

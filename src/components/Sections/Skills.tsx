@@ -2,7 +2,6 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import SkillCard from '../Elements/SkillCard';
 
 const DivMain = styled.main`
   display: flex;
@@ -63,14 +62,10 @@ function Projects ({id}: Props){
         Todas as tecnologias restantes adquiri seus conhecimentos a partir da metade de 2021 quanto aprofundei nos estudos de front end fazendo cursos, bootcamps e participando de mentorias.</Subtitle>
         <CardsFit>
           <Fit1>
-            <SkillCard src="./Skills/icons8-css3-240.png" name="CSS" />
-            <SkillCard src="./Skills/html-5.png" name="HTML5"/>
-            <SkillCard src="./Skills/icons8-next.js-240.png" name="Next.js"/> 
+        
           </Fit1>
           <Fit2>
-            <SkillCard src="./Skills/icons8-react-native-240.png" name="React.js"/>
-            <SkillCard src="./Skills/icons8-javascript-240.png" name="JavaScript"/> 
-            <SkillCard src="./Skills/icons8-typescript-240.png" name="TypeScript"/>           
+        
           </Fit2>
               
 
