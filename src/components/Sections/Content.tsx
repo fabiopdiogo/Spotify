@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 
 
-function About (){
+function Content (){
   return( 
      <>
-      <p>sdf</p>
+      <p>sddddf</p>
      </>
   )
 }
 
-export default About;
+export default Content;
