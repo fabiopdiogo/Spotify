@@ -1,13 +1,15 @@
 import styled from "styled-components"
-
-const App = styled.section`
+import Login from "./components/Sections/Login"
+const AppDiv= styled.section`
 
 `
 function App(){
   return(
-    <App>
+    <AppDiv>
         <p>Olá mundo</p>
-    </App>
+
+        <Login/>
+    </AppDiv>
   )
 }
 export default App

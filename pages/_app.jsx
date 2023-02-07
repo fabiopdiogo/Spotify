@@ -13,18 +13,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
     color: white;
-    background-color: ${props => props.theme.black}
-  }
-
-  a{
-    color: ${props => props.theme.primary};
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-
-  a:hover {
-    color: ${props => props.theme.primaryHover};
   }
 
 `
