@@ -4,16 +4,16 @@ import Login from "./components/Sections/Login"
 import { getTokenFromUrl } from "./spotify"
 import SpotifyWebApi from 'spotify-web-api-js'
 import Player from "./components/Player"
+import { useDataLayerValue } from './components/DataLayer'
 
 const AppDiv= styled.section`
 
 `
 const spotify = new SpotifyWebApi()
 
-
 function App(){
-  const [token, setToken] = useState(null);
 
+  const [{user, token}, dispatch] = useDataLayerValue();
 
   useEffect (() =>{
     const hash = getTokenFromUrl();
@@ -21,29 +21,31 @@ function App(){
     const _token = hash.access_token;
 
     if(_token){
-      setToken(_token);
+
+      dispatch({
+        type: "SET_TOKEN",
+        token: _token,
+      })
+
       spotify.setAccessToken(_token);
 
       spotify.getMe().then((user) =>{
-        console.log(user);
+        dispatch({
+          type: "SET_USER",
+          user: user,
+        });
       });
     }
 
-    console.log(" Token recebido!! ", token);
   }, []);
 
   return(
     <AppDiv>
         {
-          token? (
-            <Player />
-          ):
-          (
-            <Login/>
-          )
-        }
-        
+          token? ( <Player spotify={spotify} /> ) : ( <Login/> )
+        }        
     </AppDiv>
   )
 }
+
 export default App
