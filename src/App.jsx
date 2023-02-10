@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import Login from "./components/Sections/Login"
 import { getTokenFromUrl } from "./spotify"
 import SpotifyWebApi from 'spotify-web-api-js'
-import Player from "./components/Player"
+import Player from "./components/Sections/Player"
 import { useDataLayerValue } from './components/DataLayer'
 
 const AppDiv= styled.section`
