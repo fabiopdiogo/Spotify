@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import SidebarOption from "./SidebarOption";
+
 const SidebarDiv = styled.section`
   display: flex;
   flex-direction: column;
@@ -21,6 +23,9 @@ function Sidebar(){
   return(
     <SidebarDiv>
         <img src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg" alt="" />
+        <SidebarOption title="Home" />
+        <SidebarOption title="Search" />
+        <SidebarOption title="Your Library" />
     </SidebarDiv>
   )
 }
