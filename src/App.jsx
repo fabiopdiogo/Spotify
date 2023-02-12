@@ -49,9 +49,7 @@ function App(){
 
   return(
     <AppDiv>
-        {
-          token? ( <Player spotify={spotify} /> ) : ( <Login/> )
-        }        
+        {token? ( <Player spotify={spotify} /> ) : ( <Login/> )}        
     </AppDiv>
   )
 }

@@ -19,7 +19,7 @@ const SidebarDiv = styled.section`
   height: 100vh;
   color: white;
   background-color: #040404;
-
+  gap: 20px;
   hr{
     border: 1px solid #282828;
     width: 90%;
@@ -48,7 +48,9 @@ function Sidebar(){
         <br />
         <SidebarTitle>PLAYLISTS</SidebarTitle>
         <hr />
-
+        {playlists?.items?.map(playlist => (
+          <SidebarOption title={playlist.name}/>
+        ))}
         <SidebarOption title="Hip Hop"/>
         <SidebarOption title="Rock"/>
         <SidebarOption title="Pop"/>
