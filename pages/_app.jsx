@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     color: black;
   }
-
 `
 
 function App ({ Component, pageProps }) {
