@@ -13,6 +13,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
     color: black;
+    ::-webkit-scrollbar{
+      display:none;
+    }
   }
 `
 

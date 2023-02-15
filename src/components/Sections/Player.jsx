@@ -18,10 +18,10 @@ function Player({ spotify }) {
     <PlayerDiv>
       <PlayerBody>
         <Sidebar />
-        <Body/>
+        <Body spotify={spotify}/>
       </PlayerBody>
 
-      <Footer/>
+      <Footer spotify={spotify}/>
     </PlayerDiv>
   );
 }

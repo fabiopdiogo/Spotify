@@ -39,10 +39,16 @@ function App(){
       spotify.getUserPlaylists().then((playlists) => {
         dispatch({
           type: "SET_PLAYLISTS",
-          playlists,
+          playlists: playlists,
         });
       });
-
+      
+      spotify.getPlaylist('37i9dQZEVXcMgP8kap39RV?si=f0630a04da6f4535').then((response) =>
+        dispatch({
+          type: "SET_DISCOVER_WEEKLY",
+          discover_weekly: response,
+        })
+      );
     }
 
   }, []);
