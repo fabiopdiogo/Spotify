@@ -3,7 +3,7 @@
 ![Print da pagina](./public/print.png)
 
 
-Link para aceso na web (deploy): Ainds não disponível
+Link para aceso na web (deploy): Ainda não disponível
 
 # Como surgiu a ideia do projeto?
 
