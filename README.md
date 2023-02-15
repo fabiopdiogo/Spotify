@@ -1,6 +1,6 @@
 # Portifólio com React e TypeScript
 
-![Print da pagina](./public/Screenshot_portifolio.png)
+![Print da pagina](./public/print.png)
 
 
 Link para aceso na web (deploy): Ainds não disponível
