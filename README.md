@@ -1,4 +1,4 @@
-# Portifólio com React e TypeScript
+# Clone Spotify
 
 ![Print da pagina](./public/print.png)
 
