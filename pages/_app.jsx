@@ -1,5 +1,7 @@
 import { useEffect, useEfffect } from 'react'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { SessionProvider } from "next-auth/react";
+import { RecoilRoot } from "recoil";
 
 import theme from '../src/theme'
 
@@ -18,15 +20,19 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-function App ({ Component, pageProps }) {
+function App ({ Component, pageProps: {session, ...pageProps} }) {
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Component {...pageProps} />
-    </ThemeProvider>
-    
+    <SessionProvider session={session}>
+      <RecoilRoot>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </RecoilRoot>     
+    </SessionProvider>
   )
+
 }
 
 export default App

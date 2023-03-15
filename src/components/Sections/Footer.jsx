@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-import { useEffect, useState } from "react";
-import { useStateValue } from "../../StateProvider";
-import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShuffleIcon from "@material-ui/icons/Shuffle";
@@ -11,6 +8,8 @@ import VolumeDownIcon from "@material-ui/icons/VolumeDown";
 import PauseCircleOutlineIcon from "@material-ui/icons/PauseCircleOutline";
 import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 import { Grid, Slider } from "@material-ui/core";
+
+import useSongInfo from "../../../hooks/useSongInfo";
 
 const FooterDiv = styled.section`
   display: flex;
@@ -42,6 +41,11 @@ const FooterLeft = styled.section`
   .footer__songInfo > p {
     font-size: 12px;
   }
+  img{
+    height: 20vw;
+    margin: 0 20px;
+    box-shadow: 0 4px 60px rgba (0, 0, 0, 0.5);
+  }
 `
 
 const FooterCenter= styled.section`
@@ -71,15 +75,20 @@ const FooterRight = styled.section`
     }
 `
 
-function Footer(spotify){
+function Footer(){
+
+  const songInfo = useSongInfo();
   return(
     <FooterDiv>
         <FooterLeft>      
-            <img src="usher-yeah.jpg" alt="" className="footer__albumLogo"/>
-            <div className="footer__songInfo" >
-              <h4>Yeah!</h4>
-              <p>Usher</p>
-            </div>
+          <img 
+              src={songInfo?.album.images?.[0]?.url}
+              alt=""
+          />
+          <div className="footer__songInfo">
+            <h4>Yeah!</h4>
+            <p>Usher</p>
+          </div>
         </FooterLeft>
 
         <FooterCenter>
