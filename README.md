@@ -3,7 +3,7 @@
 ![Print da pagina](./public/print.png)
 
 
-Link para aceso na web (deploy): Ainda não disponível
+Link para aceso na web (deploy): https://spotify-cyan-three.vercel.app/
 
 # Como surgiu a ideia do projeto?
 
