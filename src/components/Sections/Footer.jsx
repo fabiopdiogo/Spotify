@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import { useEffect, useState } from "react";
+import { useStateValue } from "../../StateProvider";
+import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import ShuffleIcon from "@material-ui/icons/Shuffle";
@@ -8,14 +11,6 @@ import VolumeDownIcon from "@material-ui/icons/VolumeDown";
 import PauseCircleOutlineIcon from "@material-ui/icons/PauseCircleOutline";
 import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 import { Grid, Slider } from "@material-ui/core";
-
-import { currentTrackIdState, isPlayingState } from "../../../atoms/songAtom";
-import useSongInfo from "../../../hooks/useSongInfo";
-import useSpotify from "../../../hooks/useSpotify";
-import { useSession } from "next-auth/react";
-import { useRecoilState } from "recoil";
-import { useCallback, useEffect, useState } from "react";
-
 
 const FooterDiv = styled.section`
   display: flex;
@@ -47,8 +42,6 @@ const FooterLeft = styled.section`
   .footer__songInfo > p {
     font-size: 12px;
   }
-
-
 `
 
 const FooterCenter= styled.section`
@@ -77,55 +70,16 @@ const FooterRight = styled.section`
       color: green;
     }
 `
-const Img = styled.img`
-    height: 50px;
-    width: 50px;
-`
 
-function Footer(){
-
-  const spotifyApi = useSpotify();
-
-  const { data: session, status } = useSession();
-  const [currentTrackId, setCurrentIdTrack] = useRecoilState(currentTrackIdState);    
-  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
-  const [volume, setVolume] = useState(50);
-
-  const songInfo = useSongInfo();
-
-  const fetchCurrentSong = () => {
-    if(!songInfo){
-      spotifyApi.getMyCurrentPlayingTrack().then((data) => {
-        console.log("Now playing: ", data.body?.item);
-        setCurrentIdTrack(data.body?.item?.id);
-
-        spotifyApi.getMyCurrentPlaybackState().then((data) => {
-          setIsPlaying(data.body?.is_playing);
-        })
-      });
-    }
-  };
-
-  useEffect(() => {
-    if(spotifyApi.getAccessToken() && !currentTrackId)
-    {
-      fetchCurrentSong();
-      setVolume(50);
-    }
-  }, [currentTrackIdState, spotifyApi, session]);
-
+function Footer(spotify){
   return(
-
     <FooterDiv>
         <FooterLeft>      
-          <Img               
-              src={songInfo?.album.images?.[0]?.url}
-              alt=""
-          />
-          <div className="footer__songInfo">
-          <h3>{songInfo?.name}</h3>
-           <p>{songInfo?.artists?.[0]?.name}</p>
-          </div>
+            <img src="usher-yeah.jpg" alt="" className="footer__albumLogo"/>
+            <div className="footer__songInfo" >
+              <h4>Yeah!</h4>
+              <p>Usher</p>
+            </div>
         </FooterLeft>
 
         <FooterCenter>
@@ -135,7 +89,7 @@ function Footer(){
           <SkipNextIcon className="footer__icon" />
           <RepeatIcon className="footer__green" />
         </FooterCenter>
-        
+
         <FooterRight>
          <Grid container spacing={2}>
           <Grid item>
@@ -150,7 +104,6 @@ function Footer(){
          </Grid>
         </FooterRight>
     </FooterDiv>
-
   )
 }
 export default Footer;

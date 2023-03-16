@@ -45,7 +45,7 @@ const ArtistAlbum = styled.p`
 `;
 
 function SongRow({ track, playSong }) {
-  //console.log(track);
+  console.log(track);
   return (
     <SongRowContainer onClick={() => playSong(track.id)}>
       <AlbumImage className="songRow__album" src={track.album.images[0].url} alt="" />
